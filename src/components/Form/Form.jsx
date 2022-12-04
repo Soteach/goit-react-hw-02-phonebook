@@ -4,7 +4,6 @@ import './Form.css';
 
 export class Form extends Component {
   state = {
-    contacts: [],
     name: '',
   };
 
