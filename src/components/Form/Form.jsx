@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import './Form.css';
 
 export class Form extends Component {
   state = {
+    contacts: [],
     name: '',
+    number: '',
   };
 
   handleChange = event => {
@@ -26,6 +27,7 @@ export class Form extends Component {
 
   resetForm = () => {
     this.setState({ name: '' });
+    this.setState({ number: '' });
   };
 
   render() {
@@ -46,11 +48,22 @@ export class Form extends Component {
             required
             onChange={this.handleChange}
           ></input>
+          <label className="FormLabel" htmlFor="number">
+            Number
+          </label>
+          <input
+            className="FormInput"
+            type="tel"
+            name="number"
+            value={this.state.number}
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            required
+            onChange={this.handleChange}
+          ></input>
           <button type="submit">Add contact</button>
         </form>
       </>
     );
   }
 }
-
-// Form.propTypes = { name: PropTypes.string.isRequired };

@@ -6,11 +6,13 @@ import { nanoid } from 'nanoid';
 export class App extends Component {
   state = {
     contacts: [],
-    name: ' ',
+    name: '',
+    number: '',
   };
 
   formSubmitHandler = data => {
     console.log(data.name);
+    console.log(data.number);
     this.setState(prevState => {
       return {
         contacts: [
@@ -18,6 +20,7 @@ export class App extends Component {
           {
             id: nanoid(),
             name: data.name,
+            number: data.number,
           },
         ],
       };

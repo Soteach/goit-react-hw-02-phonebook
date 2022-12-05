@@ -12,3 +12,8 @@
 .ContactsHeader {
   margin-left: 64px;
 }
+
+li {
+  margin-left: 16px;
+  margin-bottom: 8px;
+}
