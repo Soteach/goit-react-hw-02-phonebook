@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import './Form.css';
+import PropTypes from 'prop-types';
+import './ContactForm.css';
 
-export class Form extends Component {
+export class ContactForm extends Component {
   state = {
     contacts: [],
     name: '',
@@ -67,3 +68,10 @@ export class Form extends Component {
     );
   }
 }
+
+ContactForm.propTypes = {
+  stats: PropTypes.shape({
+    name: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    number: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  }),
+};
