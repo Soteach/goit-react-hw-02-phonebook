@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import PropTypes from 'prop-types';
 import './Filter.css';
 
 export class Filter extends Component {
@@ -10,10 +9,10 @@ export class Filter extends Component {
 
   render() {
     return (
-      <label className="" htmlFor="">
+      <label className="FilterLabel" htmlFor="">
         Find contacts by name
         <input
-          className="ContactInput"
+          className="FilterInput"
           type="text"
           name="name"
           onChange={this.handlerChange}
@@ -22,8 +21,3 @@ export class Filter extends Component {
     );
   }
 }
-
-// Filter.propTypes = {
-//   filter: PropTypes.string.isRequired,
-//   changeInput: PropTypes.func.isRequired,
-// };

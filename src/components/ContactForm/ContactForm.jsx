@@ -34,7 +34,6 @@ export class ContactForm extends Component {
   render() {
     return (
       <>
-        <h2 className="FormHeader">Phonebook</h2>
         <form className="Form" onSubmit={this.handleSubmit}>
           <label className="FormLabel" htmlFor="name">
             Name
