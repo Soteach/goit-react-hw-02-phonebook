@@ -22,16 +22,25 @@ export class App extends Component {
     this.setState({ filter: filterValue });
   };
 
-  // componentDidMount() {
-  //   const parsedContacts = JSON.parse(localStorage.getItem('contacts'));
-  //   if (parsedContacts) {
-  //     this.setState({ contacts: parsedContacts });
-  //   }
-  // }
+  deleteContacts = id => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== id),
+    }));
+  };
 
   formSubmitHandler = data => {
     // console.log(data.name);
     // console.log(data.number);
+
+    if (
+      this.state.contacts.find(
+        contact => contact.name.toLowerCase() === data.name.toLowerCase()
+      )
+    ) {
+      alert(`${data.name} is already in contacts`);
+      return;
+    }
+
     this.setState(prevState => {
       return {
         contacts: [
@@ -45,8 +54,6 @@ export class App extends Component {
       };
     });
   };
-  // Даною функцією ми отримуємо доступ до даних форми на момент сабміту
-  // тобто даною ф-цією App отримує дані при їх відправці.
 
   render() {
     const filteredContacts = this.filteredContacts();
@@ -57,7 +64,10 @@ export class App extends Component {
           <ContactForm onSubmit={this.formSubmitHandler} />
           <h2 className="ContactsHeader">Contacts</h2>
           <Filter changeFilter={this.changeFilter} />
-          <ContactList contacts={filteredContacts} />
+          <ContactList
+            contacts={filteredContacts}
+            deleteContacts={this.deleteContacts}
+          />
         </div>
       </>
     );

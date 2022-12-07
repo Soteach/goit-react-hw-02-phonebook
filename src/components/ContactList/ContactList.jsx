@@ -8,12 +8,15 @@ export const ContactList = ({ contacts, deleteContacts }) => {
     <>
       <ul className="Container">
         {contacts.map(({ id, name, number }) => (
-          <ItemList key={id} name={name} number={number} />
+          <ItemList
+            key={id}
+            name={name}
+            number={number}
+            deleteContacts={deleteContacts}
+            id={id}
+          />
         ))}
       </ul>
-      <button type="button" onClick={() => deleteContacts(contacts.id)}>
-        Delete
-      </button>
     </>
   );
 };
@@ -27,4 +30,3 @@ ContactList.propTypes = {
     })
   ),
 };
-// deleteContacts: PropTypes.func.isRequired,
