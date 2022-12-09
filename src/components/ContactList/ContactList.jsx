@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { ItemList } from 'components/ItemList/ItemList';
+import { ItemList } from './ItemList/ItemList';
 import './ContactList.css';
 
 export const ContactList = ({ contacts, deleteContacts }) => {
